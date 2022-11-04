@@ -1,0 +1,48 @@
+{{ edit_comment }}
+
+FROM atkrad/wait4x:latest as wait4x
+
+FROM docker:{{ docker_version }}
+
+# Labels
+# https://github.com/opencontainers/image-spec/blob/main/annotations.md
+LABEL "maintainer"="lotyp <lotyp7@gmail.com>"
+LABEL "vendor"="wayofdev"
+LABEL "org.opencontainers.image.authors"="lotyp <lotyp7@gmail.com>"
+LABEL "org.opencontainers.image.url"="https://hub.docker.com/r/wayofdev/build-deps"
+LABEL "org.opencontainers.image.documentation"="https://github.com/wayofdev/docker-build-deps"
+LABEL "org.opencontainers.image.source"="https://github.com/wayofdev/docker-build-deps"
+LABEL "org.opencontainers.image.vendor"="wayofdev"
+LABEL "org.opencontainers.image.licenses"="MIT"
+LABEL "org.opencontainers.image.ref.name"="{{ os_name }}"
+LABEL "org.opencontainers.image.title"="build-deps-{{ os_name }}"
+LABEL "org.opencontainers.image.description"="build-deps-{{ os_name }}"
+
+ENV LANG="en_US.UTF-8"
+ENV LC_ALL="en_US.UTF-8"
+ENV LANGUAGE="en_US.UTF-8"
+
+ENV GOSS_VER=v{{ goss_version }}
+ENV GOSS_FILES_STRATEGY=cp
+
+COPY --from=wait4x /usr/bin/wait4x /usr/local/bin/wait4x
+
+RUN set -eux; \
+    apk -U upgrade -a \
+    && apk add --no-cache \
+{% for pkg in system_packages | unique %}
+        {{ pkg }} \
+{% endfor %}
+    && curl -fsSL https://goss.rocks/install | sh \
+    && cd /tmp \
+    && curl -sSLO https://raw.githubusercontent.com/aelsabbahy/goss/master/extras/dcgoss/dcgoss \
+    && mv dcgoss /usr/local/bin \
+    && chmod +x /usr/local/bin/dcgoss \
+    && addgroup -g {{ system_user_gid }} {{ system_group }} \
+    && adduser -u {{ system_user_uid }} {{ system_user }} -D -h /home/{{ system_user }} -s /bin/{{ system_shell }} -G {{ system_group }}
+
+WORKDIR /home/wod
+
+ENTRYPOINT []
+
+CMD ["/bin/bash"]

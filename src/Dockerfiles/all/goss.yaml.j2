@@ -1,0 +1,46 @@
+---
+
+command:
+  "goss --version":
+    stdout:
+      - "goss version v{{ goss_version }}"
+    exit-status: 0
+  dgoss:
+    stderr:
+      - "ERROR: USAGE: dgoss [run|edit] <docker_run_params>"
+    exit-status: 1
+  "dcgoss":
+    stdout:
+      - "no docker-compose file found in ."
+    exit-status: 1
+  "wait4x version":
+    stdout:
+      - "v2"
+    exit-status: 0
+  "docker -v":
+    stdout:
+      - "Docker version {{ docker_version }}"
+    exit-status: 0
+  "envsubst -V":
+    stdout:
+      - "envsubst (GNU gettext-runtime)"
+    exit-status: 0
+
+package:
+{% for pkg in system_packages | unique | sort %}
+{{ pkg }}:
+  installed: true
+{% endfor %}
+
+user:
+  {{ system_user }}:
+    exists: true
+    groups:
+      - {{ system_group }}
+    uid: {{ system_user_uid }}
+    gid: {{ system_user_gid }}
+    home: /home/{{ system_user }}
+group:
+  {{ system_group }}:
+    exists: true
+    gid: {{ system_user_gid }}

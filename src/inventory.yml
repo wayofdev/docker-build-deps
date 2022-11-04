@@ -1,0 +1,11 @@
+---
+
+all:
+  children:
+    base:
+      hosts:
+        alpine:
+          ansible_connection: local
+          os_name: alpine
+
+...
