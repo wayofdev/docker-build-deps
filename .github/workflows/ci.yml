@@ -87,7 +87,7 @@ jobs:
       - name: Test Docker Release Image
         if: success() && startsWith(github.ref, 'refs/tags/')
         run: |
-          IMAGE_TAG=${{ e nv.IMAGE_NAMESPACE }}:${{ env.TEMPLATE }}-${{ env.VERSION }} make test
+          IMAGE_TAG=${{ env.IMAGE_NAMESPACE }}:${{ env.TEMPLATE }}-${{ env.VERSION }} make test
 
       - name: Test Docker Master Image
         if: success() && ! startsWith(github.ref, 'refs/tags/')
