@@ -25,6 +25,8 @@ ENV LANGUAGE="en_US.UTF-8"
 ENV GOSS_VER=v0.3.20
 ENV GOSS_FILES_STRATEGY=cp
 
+ARG TARGETPLATFORM
+
 COPY --from=wait4x /usr/bin/wait4x /usr/local/bin/wait4x
 
 RUN set -eux; \
@@ -40,10 +42,11 @@ RUN set -eux; \
         gettext \
         make \
         tar \
-        gzip \
         bzip2 \
-        gnupg \
         net-tools \
+    && if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then ARCHITECTURE=arm; elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then ARCHITECTURE=arm64; else ARCHITECTURE=amd64; fi \
+    && curl -L "https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-${ARCHITECTURE}" -o /usr/local/bin/mkcert \
+    && chmod +x /usr/local/bin/mkcert \
     && curl -fsSL https://goss.rocks/install | sh \
     && cd /tmp \
     && curl -sSLO https://raw.githubusercontent.com/aelsabbahy/goss/master/extras/dcgoss/dcgoss \

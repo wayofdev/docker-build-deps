@@ -25,6 +25,10 @@ command:
     stdout:
       - "envsubst (GNU gettext-runtime)"
     exit-status: 0
+  "mkcert -version":
+    stdout:
+      - "v{{ mkcert_version }}"
+    exit-status: 0
 
 package:
 {% for pkg in system_packages | unique | sort %}

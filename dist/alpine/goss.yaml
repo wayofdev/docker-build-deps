@@ -25,6 +25,10 @@ command:
     stdout:
       - "envsubst (GNU gettext-runtime)"
     exit-status: 0
+  "mkcert -version":
+    stdout:
+      - "v1.4.4"
+    exit-status: 0
 
 package:
 bash:
@@ -38,10 +42,6 @@ curl:
 gettext:
   installed: true
 git:
-  installed: true
-gnupg:
-  installed: true
-gzip:
   installed: true
 make:
   installed: true

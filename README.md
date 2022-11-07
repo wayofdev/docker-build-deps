@@ -38,14 +38,13 @@ Installed and enabled packages in this image:
 | gettext (envsubst)                                           | apk  |                                                              |
 | make                                                         | apk  |                                                              |
 | tar                                                          | apk  |                                                              |
-| gzip                                                         | apk  |                                                              |
 | bzip2                                                        | apk  |                                                              |
-| gnupg                                                        | apk  |                                                              |
-| net-tools                                                    | apk  |                                                              |
+| net-tools                                                    | apk  | Linux networking base tools                                  |
 | [goss](https://goss.rocks/)                                  | bin  | Quick and Easy server testing / validation                   |
 | [dgoss](https://github.com/aelsabbahy/goss/tree/master/extras/dgoss) | bin  | Wrapper around goss to perform tests on docker containers    |
 | [dcgoss](https://github.com/aelsabbahy/goss/blob/master/extras/dcgoss/dcgoss) | bin  | Uses docker-compose file instead of passing docker run args  |
 | [wait4x](https://github.com/atkrad/wait4x)                   | bin  | Allows to wait for a port or a service to enter the requested state |
+| [mkcert](https://github.com/FiloSottile/mkcert)              | bin  | A simple zero-config tool to make locally trusted development certificates with any names |
 
 <br>
 
