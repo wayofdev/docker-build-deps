@@ -26,20 +26,18 @@ Repository contains docker image with build dependencies for WOD projects.
 ### → Installed and enabled **apk** packages in this image:
 
 * **net-tools** — Linux networking base tools
-* **gettext (envsubst)** — The envsubst searches the input for pattern $VARIABLE or ${VARIABLE}. Then, it replaces the pattern with the value of the corresponding bash variable 
+* **gettext (envsubst)** — The envsubst searches the input for pattern $VARIABLE or ${VARIABLE}. Then, it replaces the pattern with the value of the corresponding bash variable
 * git
-* bash           
-* unzip          
-* nano           
+* bash
+* unzip
+* nano
 * ca-certificates
-* tzdata         
-* curl           
-* bash           
-* make 
-* tar  
+* tzdata
+* curl
+* bash
+* make
+* tar
 * bzip2
-
-<br>
 
 ### → Installed tools:
 
