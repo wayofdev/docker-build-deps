@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/wayofdev/docker-build-deps/compare/v1.1.0...v1.2.0) (2022-12-12)
+
+
+### Features
+
+* add actionlint and shellcheck binaries ([04bf95f](https://github.com/wayofdev/docker-build-deps/commit/04bf95f51b22f230739ec9d98a798423f3cca143))
+
+
+### Miscellaneous
+
+* readme fix ([e04f7b0](https://github.com/wayofdev/docker-build-deps/commit/e04f7b07ddc892b3321c5d0947f63490ad339b8d))
+
 ## [1.1.0](https://github.com/wayofdev/docker-build-deps/compare/v1.0.0...v1.1.0) (2022-11-07)
 
 
