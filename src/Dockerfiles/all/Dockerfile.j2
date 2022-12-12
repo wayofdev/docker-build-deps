@@ -1,6 +1,8 @@
 {{ edit_comment }}
 
-FROM atkrad/wait4x:latest as wait4x
+FROM atkrad/wait4x:{{ wait4x_version }} as wait4x
+FROM rhysd/actionlint:{{ actionlint_version }} as actionlint
+FROM koalaman/shellcheck-alpine:v{{ shellcheck_version }} as shellcheck
 
 FROM docker:{{ docker_version }}
 
@@ -28,6 +30,10 @@ ENV GOSS_FILES_STRATEGY=cp
 ARG TARGETPLATFORM
 
 COPY --from=wait4x /usr/bin/wait4x /usr/local/bin/wait4x
+COPY --from=actionlint /usr/local/bin/actionlint /usr/local/bin/actionlint
+COPY --from=shellcheck /bin/shellcheck /usr/local/bin/shellcheck
+
+WORKDIR /tmp
 
 RUN set -eux; \
     apk -U upgrade -a \
@@ -39,7 +45,6 @@ RUN set -eux; \
     && curl -L "https://github.com/FiloSottile/mkcert/releases/download/v{{ mkcert_version }}/mkcert-v{{ mkcert_version }}-linux-${ARCHITECTURE}" -o /usr/local/bin/mkcert \
     && chmod +x /usr/local/bin/mkcert \
     && curl -fsSL https://goss.rocks/install | sh \
-    && cd /tmp \
     && curl -sSLO https://raw.githubusercontent.com/aelsabbahy/goss/master/extras/dcgoss/dcgoss \
     && mv dcgoss /usr/local/bin \
     && chmod +x /usr/local/bin/dcgoss \

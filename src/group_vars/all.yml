@@ -53,7 +53,10 @@ system_user_uid: 1000
 system_user_gid: 1000
 system_shell: bash
 
+wait4x_version: "2"
 goss_version: "0.3.20"
 mkcert_version: "1.4.4"
+actionlint_version: "1.6.22"
+shellcheck_version: "0.8.0"
 
 ...

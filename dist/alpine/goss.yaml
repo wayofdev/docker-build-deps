@@ -29,6 +29,14 @@ command:
     stdout:
       - "v1.4.4"
     exit-status: 0
+  "actionlint --version":
+    stdout:
+      - "1.6.22"
+    exit-status: 0
+  "shellcheck --version":
+    stdout:
+      - "version: 0.8.0"
+    exit-status: 0
 
 package:
 bash:

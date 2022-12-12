@@ -15,7 +15,7 @@ command:
     exit-status: 1
   "wait4x version":
     stdout:
-      - "v2"
+      - "v{{ wait4x_version }}"
     exit-status: 0
   "docker -v":
     stdout:
@@ -28,6 +28,14 @@ command:
   "mkcert -version":
     stdout:
       - "v{{ mkcert_version }}"
+    exit-status: 0
+  "actionlint --version":
+    stdout:
+      - "{{ actionlint_version }}"
+    exit-status: 0
+  "shellcheck --version":
+    stdout:
+      - "version: {{ shellcheck_version }}"
     exit-status: 0
 
 package:

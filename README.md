@@ -23,28 +23,33 @@
 
 Repository contains docker image with build dependencies for WOD projects.
 
-Installed and enabled packages in this image:
+### → Installed and enabled **apk** packages in this image:
 
-| Package                                                      | Type | Description                                                  |
-| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
-| git                                                          | apk  |                                                              |
-| bash                                                         | apk  |                                                              |
-| unzip                                                        | apk  |                                                              |
-| nano                                                         | apk  |                                                              |
-| ca-certificates                                              | apk  |                                                              |
-| tzdata                                                       | apk  |                                                              |
-| curl                                                         | apk  |                                                              |
-| bash                                                         | apk  |                                                              |
-| gettext (envsubst)                                           | apk  |                                                              |
-| make                                                         | apk  |                                                              |
-| tar                                                          | apk  |                                                              |
-| bzip2                                                        | apk  |                                                              |
-| net-tools                                                    | apk  | Linux networking base tools                                  |
-| [goss](https://goss.rocks/)                                  | bin  | Quick and Easy server testing / validation                   |
-| [dgoss](https://github.com/aelsabbahy/goss/tree/master/extras/dgoss) | bin  | Wrapper around goss to perform tests on docker containers    |
-| [dcgoss](https://github.com/aelsabbahy/goss/blob/master/extras/dcgoss/dcgoss) | bin  | Uses docker-compose file instead of passing docker run args  |
-| [wait4x](https://github.com/atkrad/wait4x)                   | bin  | Allows to wait for a port or a service to enter the requested state |
-| [mkcert](https://github.com/FiloSottile/mkcert)              | bin  | A simple zero-config tool to make locally trusted development certificates with any names |
+* **net-tools** — Linux networking base tools
+* **gettext (envsubst)** — The envsubst searches the input for pattern $VARIABLE or ${VARIABLE}. Then, it replaces the pattern with the value of the corresponding bash variable 
+* git
+* bash           
+* unzip          
+* nano           
+* ca-certificates
+* tzdata         
+* curl           
+* bash           
+* make 
+* tar  
+* bzip2
+
+<br>
+
+### → Installed tools:
+
+* [goss](https://goss.rocks/) — Quick and Easy server testing / validation
+* [dgoss](https://github.com/aelsabbahy/goss/tree/master/extras/dgoss) — Wrapper around goss to perform tests on docker containers
+* [dcgoss](https://github.com/aelsabbahy/goss/blob/master/extras/dcgoss/dcgoss) — Uses docker-compose file instead of passing docker run args
+* [wait4x](https://github.com/atkrad/wait4x) — Allows to wait for a port or a service to enter the requested state
+* [mkcert](https://github.com/FiloSottile/mkcert) — A simple zero-config tool to make locally trusted development certificates with any names
+* [shellcheck](https://www.shellcheck.net) — Finds bugs in your shell scripts
+* [actionlint](https://github.com/rhysd/actionlint) — Static checker for GitHub Actions workflow files
 
 <br>
 
@@ -84,7 +89,11 @@ system_user_uid: 1000
 system_user_gid: 1000
 system_shell: bash
 
+wait4x_version: "2"
 goss_version: "0.3.20"
+mkcert_version: "1.4.4"
+actionlint_version: "1.6.22"
+shellcheck_version: "0.8.0"
 ```
 
 <br>
@@ -101,7 +110,7 @@ $ make generate
 
 To install dependencies and start development you can check contents of our `Makefile`
 
-### →  Requirments
+### → Requirments
 
 For testing purposes we use **goss** and **dgoss**, follow installation instructions on  [their official README](https://github.com/aelsabbahy/goss/blob/master/extras/dgoss/README.md)
 
@@ -134,7 +143,7 @@ $ make
 
 ## 🧪 Testing
 
-You can check `Makefile` to get full list of commands for local testing. For testing you can use these comands to test whole role or separate tasks:
+You can check `Makefile` to get full list of commands for local testing. For testing, you can use these commands to test whole role or separate tasks:
 
 Testing default image:
 

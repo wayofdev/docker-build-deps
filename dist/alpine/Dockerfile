@@ -1,6 +1,8 @@
 # Auto-generated via Ansible: edit src/Dockerfiles/all/Dockerfile.j2 instead.
 
-FROM atkrad/wait4x:latest as wait4x
+FROM atkrad/wait4x:2 as wait4x
+FROM rhysd/actionlint:1.6.22 as actionlint
+FROM koalaman/shellcheck-alpine:v0.8.0 as shellcheck
 
 FROM docker:20.10.21
 
@@ -28,6 +30,10 @@ ENV GOSS_FILES_STRATEGY=cp
 ARG TARGETPLATFORM
 
 COPY --from=wait4x /usr/bin/wait4x /usr/local/bin/wait4x
+COPY --from=actionlint /usr/local/bin/actionlint /usr/local/bin/actionlint
+COPY --from=shellcheck /bin/shellcheck /usr/local/bin/shellcheck
+
+WORKDIR /tmp
 
 RUN set -eux; \
     apk -U upgrade -a \
@@ -48,7 +54,6 @@ RUN set -eux; \
     && curl -L "https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-${ARCHITECTURE}" -o /usr/local/bin/mkcert \
     && chmod +x /usr/local/bin/mkcert \
     && curl -fsSL https://goss.rocks/install | sh \
-    && cd /tmp \
     && curl -sSLO https://raw.githubusercontent.com/aelsabbahy/goss/master/extras/dcgoss/dcgoss \
     && mv dcgoss /usr/local/bin \
     && chmod +x /usr/local/bin/dcgoss \
