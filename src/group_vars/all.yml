@@ -5,11 +5,6 @@
 edit_comment: "# Auto-generated via Ansible: edit src/Dockerfiles/all/Dockerfile.j2 instead."
 
 
-# Variables
-########################################################################################################################
-docker_version: "20.10.21"
-
-
 # Dist directories
 ########################################################################################################################
 tpl_directories:
@@ -53,6 +48,7 @@ system_user_uid: 1000
 system_user_gid: 1000
 system_shell: bash
 
+docker_version: 20.10.21
 wait4x_version: 2.12.0
 goss_version: 0.3.20
 mkcert_version: 1.4.4
