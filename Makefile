@@ -1,4 +1,8 @@
+# BuildKit enables higher performance docker builds and caching possibility
+# to decrease build times and increase productivity for free.
 export DOCKER_BUILDKIT ?= 1
+export COMPOSE_DOCKER_CLI_BUILD ?= 1
+
 IMAGE_NAMESPACE ?= wayofdev/build-deps
 TEMPLATE ?= alpine
 
@@ -8,6 +12,9 @@ CACHE_FROM ?= $(IMAGE_TAG)
 OS ?= $(shell uname)
 CURRENT_DIR ?= $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
+
+# Self documenting Makefile code
+# ------------------------------------------------------------------------------------
 ifneq ($(TERM),)
 	BLACK := $(shell tput setaf 0)
 	RED := $(shell tput setaf 1)
@@ -47,24 +54,44 @@ help:
 	@echo '    🏢 ${YELLOW}Org                     wayofdev (github.com/wayofdev)${RST}'
 .PHONY: help
 
-all: build test
-PHONY: all
 
+# Default action
+# Defines default command when `make` is executed without additional parameters
+# ------------------------------------------------------------------------------------
+all: hooks generate build test
+.PHONY: all
+
+
+# System Actions
+# ------------------------------------------------------------------------------------
 build: ## Build default docker image
 	cd $(CURRENT_DIR)$(DOCKERFILE_DIR); \
-	docker build . -t $(IMAGE_TAG)
+	docker buildx build \
+		--platform linux/arm64,linux/amd64 \
+		--tag $(IMAGE_TAG) \
+		--push .
 PHONY: build
 
 build-from-cache: ## Build default docker image using cached layers
 	cd $(CURRENT_DIR)$(DOCKERFILE_DIR); \
-	docker build --cache-from $(CACHE_FROM) . -t $(IMAGE_TAG)
+	docker buildx build \
+		--platform linux/arm64,linux/amd64 \
+		--tag $(IMAGE_TAG) \
+		--cache-from $(CACHE_FROM) \
+		--push .
 PHONY: build-from-cache
 
-test: ## Run dgoss tests over docker images
-	set -eux
-	GOSS_FILES_STRATEGY=cp GOSS_FILES_PATH=$(DOCKERFILE_DIR) dgoss run -t $(IMAGE_TAG)
-.PHONY: test
+clean: ## Deletes all files in dist folder
+	rm -rf ./dist/*
+PHONY: clean
 
+generate: ## Generate dist files from src folder using ansible playbook
+	ansible-playbook src/generate.yml
+PHONY: generate
+
+
+# Docker Actions
+# ------------------------------------------------------------------------------------
 pull: ## Pulls docker image from upstream
 	docker pull $(IMAGE_TAG)
 .PHONY: pull
@@ -77,9 +104,21 @@ ssh: ## Login into built image
 	docker run --rm -it -v $(PWD)/:/opt/build-deps $(IMAGE_TAG) sh
 .PHONY: ssh
 
-hadolint:  ## Run hadolint over dist Dockerfiles
-	hadolint -V ./dist/alpine/Dockerfile
-.PHONY: hadolint
+
+# Testing and Code Quality
+# ------------------------------------------------------------------------------------
+test: ## Run dgoss tests over docker images
+	set -eux
+	GOSS_FILES_STRATEGY=cp GOSS_FILES_PATH=$(DOCKERFILE_DIR) dgoss run -t $(IMAGE_TAG)
+.PHONY: test
+
+lint-docker:  ## Run hadolint over dist Dockerfiles
+	hadolint -V ./dist/$(TEMPLATE)/Dockerfile
+.PHONY: lint-docker
+
+lint-yaml: ## Lints yaml files inside project
+	yamllint .
+.PHONY: lint-yaml
 
 
 # Git Actions
@@ -88,21 +127,3 @@ hooks: ## Install git hooks from pre-commit-config
 	pre-commit install
 	pre-commit autoupdate
 .PHONY: hooks
-
-
-# Yaml Actions
-# ------------------------------------------------------------------------------------
-lint: ## Lints yaml files inside project
-	yamllint .
-.PHONY: lint
-
-
-# Ansible Actions
-# ------------------------------------------------------------------------------------
-generate: ## Generate dist files from src folder using ansible playbook
-	ansible-playbook src/generate.yml
-PHONY: generate
-
-clean: ## Deletes all files in dist folder
-	rm -rf ./dist/*
-PHONY: clean
