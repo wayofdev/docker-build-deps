@@ -10,6 +10,15 @@
         {
             "fileMatch": ["^src/group_vars/all\\.yml$"],
             "matchStrings": [
+                "docker_version:\\s*(?<currentValue>[\\d.]+)"
+            ],
+            "datasourceTemplate": "docker",
+            "depNameTemplate": "docker",
+            "autoReplaceStringTemplate": "docker_version: {{{newValue}}}"
+        },
+        {
+            "fileMatch": ["^src/group_vars/all\\.yml$"],
+            "matchStrings": [
                 "wait4x_version:\\s*(?<currentValue>[\\d.]+)"
             ],
             "datasourceTemplate": "docker",
