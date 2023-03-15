@@ -48,7 +48,7 @@ system_user_uid: 1000
 system_user_gid: 1000
 system_shell: bash
 
-docker_version: 20.10.23
+docker_version: 23.0.1
 wait4x_version: 2.12.0
 goss_version: 0.3.20
 mkcert_version: 1.4.4
