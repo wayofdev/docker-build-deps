@@ -6,6 +6,9 @@
     "prHourlyLimit": 10,
     "automerge": true,
     "platformAutomerge": true,
+    "ignorePaths": [
+        "src/Dockerfiles/all/Dockerfile.j2"
+    ],
     "regexManagers": [
         {
             "fileMatch": ["^src/group_vars/all\\.yml$"],
