@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/wayofdev/docker-build-deps/compare/v1.3.0...v1.4.0) (2023-03-15)
+
+
+### Features
+
+* custom renovate config ([a617772](https://github.com/wayofdev/docker-build-deps/commit/a617772db58775f0ecf7b1681cb0a8354773a3b9))
+
 ## [1.3.0](https://github.com/wayofdev/docker-build-deps/compare/v1.2.0...v1.3.0) (2023-03-15)
 
 
