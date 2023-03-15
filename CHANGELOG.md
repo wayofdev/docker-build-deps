@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/wayofdev/docker-build-deps/compare/v1.2.0...v1.3.0) (2023-03-15)
+
+
+### Features
+
+* prepare for auto-merge ([ac8b073](https://github.com/wayofdev/docker-build-deps/commit/ac8b073048fef51586753b4e0ae04398f0a154d7))
+
 ## [1.2.0](https://github.com/wayofdev/docker-build-deps/compare/v1.1.0...v1.2.0) (2022-12-12)
 
 
