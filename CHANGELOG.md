@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.5](https://github.com/wayofdev/docker-build-deps/compare/v1.4.4...v1.4.5) (2023-03-15)
+
+
+### Bug Fixes
+
+* ignore source dockerfile ([4bd2bc0](https://github.com/wayofdev/docker-build-deps/commit/4bd2bc0ada4a3227732ae02bb4eb2d44dcbcdf0b))
+
 ## [1.4.4](https://github.com/wayofdev/docker-build-deps/compare/v1.4.3...v1.4.4) (2023-03-15)
 
 
