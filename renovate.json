@@ -28,7 +28,7 @@
         {
             "fileMatch": ["^src/group_vars/all\\.yml$"],
             "matchStrings": [
-                "actionlint:\\s*(?<currentValue>[\\d.]+)"
+                "actionlint_version:\\s*(?<currentValue>[\\d.]+)"
             ],
             "datasourceTemplate": "docker",
             "depNameTemplate": "rhysd/actionlint",
@@ -37,7 +37,7 @@
         {
             "fileMatch": ["^src/group_vars/all\\.yml$"],
             "matchStrings": [
-                "shellcheck:\\s*(?<currentValue>[\\d.]+)"
+                "shellcheck_version:\\s*(?<currentValue>[\\d.]+)"
             ],
             "datasourceTemplate": "docker",
             "depNameTemplate": "koalaman/shellcheck-alpine",
