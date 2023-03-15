@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/wayofdev/docker-build-deps/compare/v1.4.0...v1.4.1) (2023-03-15)
+
+
+### Bug Fixes
+
+* missing deps ([e645a51](https://github.com/wayofdev/docker-build-deps/commit/e645a513877006a8c9d8b40eceec31907c08d923))
+
 ## [1.4.0](https://github.com/wayofdev/docker-build-deps/compare/v1.3.0...v1.4.0) (2023-03-15)
 
 
