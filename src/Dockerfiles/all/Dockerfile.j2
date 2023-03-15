@@ -24,7 +24,6 @@ ENV LANG="en_US.UTF-8"
 ENV LC_ALL="en_US.UTF-8"
 ENV LANGUAGE="en_US.UTF-8"
 
-ENV GOSS_VER=v{{ goss_version }}
 ENV GOSS_FILES_STRATEGY=cp
 
 ARG TARGETPLATFORM
@@ -44,7 +43,7 @@ RUN set -eux; \
     && if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then ARCHITECTURE=arm; elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then ARCHITECTURE=arm64; else ARCHITECTURE=amd64; fi \
     && curl -L "https://github.com/FiloSottile/mkcert/releases/download/v{{ mkcert_version }}/mkcert-v{{ mkcert_version }}-linux-${ARCHITECTURE}" -o /usr/local/bin/mkcert \
     && chmod +x /usr/local/bin/mkcert \
-    && curl -fsSL https://goss.rocks/install | sh \
+    && curl -fsSL https://goss.rocks/install | GOSS_VER=v{{ goss_version }} sh \
     && curl -sSLO https://raw.githubusercontent.com/aelsabbahy/goss/master/extras/dcgoss/dcgoss \
     && mv dcgoss /usr/local/bin \
     && chmod +x /usr/local/bin/dcgoss \

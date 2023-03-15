@@ -2,5 +2,55 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
         "config:base"
+    ],
+    "prHourlyLimit": 10,
+    "automerge": true,
+    "platformAutomerge": true,
+    "regexManagers": [
+        {
+            "fileMatch": ["^src/group_vars/all\\.yml$"],
+            "matchStrings": [
+                "wait4x_version:\\s*(?<currentValue>[\\d.]+)"
+            ],
+            "datasourceTemplate": "docker",
+            "depNameTemplate": "atkrad/wait4x",
+            "autoReplaceStringTemplate": "wait4x_version: {{{newValue}}}"
+        },
+        {
+            "fileMatch": ["^src/group_vars/all\\.yml$"],
+            "matchStrings": [
+                "goss_version:\\s*(?<currentValue>[\\d.]+)"
+            ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "goss-org/goss",
+            "autoReplaceStringTemplate": "goss_version: {{{newValue}}}"
+        },
+        {
+            "fileMatch": ["^src/group_vars/all\\.yml$"],
+            "matchStrings": [
+                "actionlint:\\s*(?<currentValue>[\\d.]+)"
+            ],
+            "datasourceTemplate": "docker",
+            "depNameTemplate": "rhysd/actionlint",
+            "autoReplaceStringTemplate": "actionlint: {{{newValue}}}"
+        },
+        {
+            "fileMatch": ["^src/group_vars/all\\.yml$"],
+            "matchStrings": [
+                "shellcheck:\\s*(?<currentValue>[\\d.]+)"
+            ],
+            "datasourceTemplate": "docker",
+            "depNameTemplate": "koalaman/shellcheck-alpine",
+            "autoReplaceStringTemplate": "shellcheck: {{{newValue}}}"
+        },
+        {
+            "fileMatch": ["^src/group_vars/all\\.yml$"],
+            "matchStrings": [
+                "mkcert_version:\\s*(?<currentValue>[\\d.]+)"
+            ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "filosottile/mkcert",
+            "autoReplaceStringTemplate": "mkcert_version: {{{newValue}}}"
+        }
     ]
 }
