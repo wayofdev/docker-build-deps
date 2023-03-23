@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.6](https://github.com/wayofdev/docker-build-deps/compare/v1.4.5...v1.4.6) (2023-03-23)
+
+
+### Miscellaneous
+
+* **deps:** update peter-evans/enable-pull-request-automerge action to v3 ([7d34ebf](https://github.com/wayofdev/docker-build-deps/commit/7d34ebf4bec1224beb5800c5476b5480e4307ff2))
+
 ## [1.4.5](https://github.com/wayofdev/docker-build-deps/compare/v1.4.4...v1.4.5) (2023-03-15)
 
 
