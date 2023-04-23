@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.9](https://github.com/wayofdev/docker-build-deps/compare/v1.4.8...v1.4.9) (2023-04-23)
+
+
+### Miscellaneous
+
+* **deps:** update atkrad/wait4x docker tag to v2.13.0 ([1e04423](https://github.com/wayofdev/docker-build-deps/commit/1e044234d5b0c75ea4fcce74c6c371914e29b898))
+
 ## [1.4.8](https://github.com/wayofdev/docker-build-deps/compare/v1.4.7...v1.4.8) (2023-04-18)
 
 
