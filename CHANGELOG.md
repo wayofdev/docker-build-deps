@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.15](https://github.com/wayofdev/docker-build-deps/compare/v1.4.14...v1.4.15) (2023-06-07)
+
+
+### Miscellaneous
+
+* **deps:** update docker/setup-qemu-action action to v2.2.0 ([7836f04](https://github.com/wayofdev/docker-build-deps/commit/7836f044d4b7cc6db44c71cc1756f32043a0aacd))
+
 ## [1.4.14](https://github.com/wayofdev/docker-build-deps/compare/v1.4.13...v1.4.14) (2023-05-26)
 
 
