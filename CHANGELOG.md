@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.18](https://github.com/wayofdev/docker-build-deps/compare/v1.4.17...v1.4.18) (2023-07-25)
+
+
+### Miscellaneous
+
+* **deps:** update docker docker tag to v24.0.5 ([6995009](https://github.com/wayofdev/docker-build-deps/commit/6995009bac0b4c7131de0cc74509109238eb62a0))
+
 ## [1.4.17](https://github.com/wayofdev/docker-build-deps/compare/v1.4.16...v1.4.17) (2023-07-10)
 
 
