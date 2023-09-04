@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.19](https://github.com/wayofdev/docker-build-deps/compare/v1.4.18...v1.4.19) (2023-09-04)
+
+
+### Miscellaneous
+
+* **deps:** update actions/checkout action to v4 ([7f5beb1](https://github.com/wayofdev/docker-build-deps/commit/7f5beb165aa26c58f60cb0dfd9cc3fdd23354c1c))
+
 ## [1.4.18](https://github.com/wayofdev/docker-build-deps/compare/v1.4.17...v1.4.18) (2023-07-25)
 
 
