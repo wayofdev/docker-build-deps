@@ -72,7 +72,7 @@ jobs:
 
       ### For Cross Platform OSX builds uncomment these lines
       - name: 🖥️ Set up QEMU
-        uses: docker/setup-qemu-action@v2.2.0
+        uses: docker/setup-qemu-action@v3.0.0
         with:
           platforms: arm64
 
