@@ -92,7 +92,7 @@ jobs:
           echo "IMAGE_TAG=${{ env.IMAGE_NAMESPACE }}:${{ env.TEMPLATE }}-latest" >> "$GITHUB_ENV"
 
       - name: 🛠️ Build and export to docker
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: ./dist/${{ env.TEMPLATE }}
           load: true
@@ -106,7 +106,7 @@ jobs:
           export IMAGE_TAG=${{ env.IMAGE_TAG }}; make test
 
       - name: 📤 Push docker image
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: ./dist/${{ env.TEMPLATE }}
           ### For Cross Platform OSX builds uncomment these lines
