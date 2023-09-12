@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.22](https://github.com/wayofdev/docker-build-deps/compare/v1.4.21...v1.4.22) (2023-09-12)
+
+
+### Miscellaneous
+
+* **deps:** update docker/login-action action to v3 ([6c744c9](https://github.com/wayofdev/docker-build-deps/commit/6c744c9bdcf79f869634e5793a5e7d9f3a6f948f))
+
 ## [1.4.21](https://github.com/wayofdev/docker-build-deps/compare/v1.4.20...v1.4.21) (2023-09-12)
 
 
