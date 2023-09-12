@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.21](https://github.com/wayofdev/docker-build-deps/compare/v1.4.20...v1.4.21) (2023-09-12)
+
+
+### Miscellaneous
+
+* **deps:** update docker/setup-buildx-action action to v3 ([f9c59b1](https://github.com/wayofdev/docker-build-deps/commit/f9c59b14d4932b1a09fe0e9ad3c65336c6eecf1a))
+
 ## [1.4.20](https://github.com/wayofdev/docker-build-deps/compare/v1.4.19...v1.4.20) (2023-09-12)
 
 
