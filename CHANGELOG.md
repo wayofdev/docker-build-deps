@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.20](https://github.com/wayofdev/docker-build-deps/compare/v1.4.19...v1.4.20) (2023-09-12)
+
+
+### Miscellaneous
+
+* **deps:** update docker/build-push-action action to v5 ([456fb51](https://github.com/wayofdev/docker-build-deps/commit/456fb5148914dc56d30b38b09ef34fe83a10a8a6))
+
 ## [1.4.19](https://github.com/wayofdev/docker-build-deps/compare/v1.4.18...v1.4.19) (2023-09-04)
 
 
