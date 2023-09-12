@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.23](https://github.com/wayofdev/docker-build-deps/compare/v1.4.22...v1.4.23) (2023-09-12)
+
+
+### Miscellaneous
+
+* **deps:** update docker/metadata-action action to v5 ([6c6fb99](https://github.com/wayofdev/docker-build-deps/commit/6c6fb99d2c2485def66bab93ef9efcb0caa38d07))
+
 ## [1.4.22](https://github.com/wayofdev/docker-build-deps/compare/v1.4.21...v1.4.22) (2023-09-12)
 
 
