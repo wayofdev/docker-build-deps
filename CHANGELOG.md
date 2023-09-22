@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.26](https://github.com/wayofdev/docker-build-deps/compare/v1.4.25...v1.4.26) (2023-09-22)
+
+
+### Miscellaneous
+
+* **deps:** update actions/checkout digest to 8ade135 ([1dd2351](https://github.com/wayofdev/docker-build-deps/commit/1dd235187ba9978012d68046202f9fd1c89a59e9))
+
 ## [1.4.25](https://github.com/wayofdev/docker-build-deps/compare/v1.4.24...v1.4.25) (2023-09-12)
 
 
