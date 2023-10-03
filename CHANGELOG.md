@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.27](https://github.com/wayofdev/docker-build-deps/compare/v1.4.26...v1.4.27) (2023-10-03)
+
+
+### Miscellaneous
+
+* **deps:** update redhat-plumbers-in-action/differential-shellcheck action to v5 ([5271cf2](https://github.com/wayofdev/docker-build-deps/commit/5271cf23792b21896b52db580f8be42a7b609ee6))
+
 ## [1.4.26](https://github.com/wayofdev/docker-build-deps/compare/v1.4.25...v1.4.26) (2023-09-22)
 
 
