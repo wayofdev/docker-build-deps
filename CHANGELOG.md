@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.28](https://github.com/wayofdev/docker-build-deps/compare/v1.4.27...v1.4.28) (2023-10-19)
+
+
+### Miscellaneous
+
+* **deps:** update actions/checkout digest to b4ffde6 ([05c9e40](https://github.com/wayofdev/docker-build-deps/commit/05c9e401d293d98171d93759aac30d88915322e9))
+
 ## [1.4.27](https://github.com/wayofdev/docker-build-deps/compare/v1.4.26...v1.4.27) (2023-10-03)
 
 
