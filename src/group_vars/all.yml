@@ -50,7 +50,7 @@ system_shell: bash
 
 docker_version: 25.0.4
 wait4x_version: 2.14.0
-goss_version: 0.4.4
+goss_version: 0.4.6
 mkcert_version: 1.4.4
 actionlint_version: 1.6.22
 shellcheck_version: 0.8.0
